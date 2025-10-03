@@ -1,4 +1,4 @@
-import { Facebook, Twitter, Instagram, Mail, ShoppingBag } from "lucide-react"
+import { Mail, ShoppingBag } from "lucide-react"
 
 export function Footer() {
   return (
