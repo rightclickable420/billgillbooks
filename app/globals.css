@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 
 /* Dark moody crime fiction theme with deep blacks and crimson accents */
 :root {
