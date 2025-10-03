@@ -9,11 +9,17 @@ const books = [
     description:
       `When the mutilated body of a young park ranger is discovered at the base of Eagle Tower in Door County, Wisconsin, the quiet tourist haven becomes the hunting ground of a killer who sees his crimes as art.
 
-Told through the voice of Robin Turner, a true-crime podcaster obsessed with understanding the criminal mind, Terrence plunges readers into the psyche of a murderer who believes his grotesque acts elevate him above the "ordinary" masses. With each carefully staged tableau, Terrence leaves behind more than just bodies — he leaves a message, a challenge, and a calling card carved into the flesh of his victims.
+Told through the voice of Robin Turner, a true-crime podcaster obsessed with understanding the criminal mind, Terrence plunges readers into the psyche of a murderer who believes his grotesque acts elevate him above the "ordinary" masses.
 
-As local deputies scramble to secure their first murder scene in years, investigative Sergeant Lorenzo Brown faces a chilling puzzle: a killer who sees himself not as a monster, but as a misunderstood genius. Evidence is scarce, the public is terrified, and the media descends as speculation grows.
+With each carefully staged tableau, Terrence leaves behind more than just bodies — he leaves a message, a challenge, and a calling card carved into the flesh of his victims.
 
-What follows is a slow-burn psychological thriller that explores obsession, artistic madness, and the fragile line between genius and evil. With gritty Midwestern atmosphere, meticulous police work, and a haunting antagonist, Terrence will keep readers turning pages late into the night.`,
+As local deputies scramble to secure their first murder scene in years, investigative Sergeant Lorenzo Brown faces a chilling puzzle: a killer who sees himself not as a monster, but as a misunderstood genius.
+
+Evidence is scarce, the public is terrified, and the media descends as speculation grows.
+
+What follows is a slow-burn psychological thriller that explores obsession, artistic madness, and the fragile line between genius and evil.
+
+With gritty Midwestern atmosphere, meticulous police work, and a haunting antagonist, Terrence will keep readers turning pages late into the night.`,
     cover: "/terrence_cover.png",
     amazonUrl: "https://a.co/d/8LgME6t",
     year: "2025",

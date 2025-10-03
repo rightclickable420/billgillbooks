@@ -21,7 +21,7 @@ export function Hero() {
           alt=""
           width={1920}
           height={1080}
-          className="w-full h-full object-cover opacity-30"
+          className="w-full h-full object-cover opacity-60"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background/80 to-background" />
       </div>
