@@ -24,14 +24,15 @@ export function Books() {
   return (
     <section id="books" className="py-24 sm:py-32">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-2xl mb-16">
+        <div className="max-w-2xl mx-auto mb-16 text-center">
           <h2 className="text-4xl sm:text-5xl font-serif font-bold mb-6 text-balance">Available Books</h2>
           <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
             Dive into the dark and twisted world of Bill Gill&apos;s crime fiction. Each novel is a meticulously crafted psychological thriller that will keep you guessing until the very end.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
           {books.map((book, index) => (
             <Card key={index} className="group overflow-hidden bg-card border-border hover:border-accent/50 transition-all duration-300 hover:shadow-lg">
               <div className="grid md:grid-cols-5 gap-6 p-6">
@@ -68,6 +69,7 @@ export function Books() {
               </div>
             </Card>
           ))}
+          </div>
         </div>
       </div>
     </section>
