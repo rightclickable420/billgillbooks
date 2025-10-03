@@ -1,3 +1,7 @@
+# Bill Gill Books - Author Website
+
+A modern, responsive website for crime fiction author Bill Gill, showcasing his latest novel "Terrence" and providing information about his work.
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
