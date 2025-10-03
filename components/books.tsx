@@ -4,6 +4,21 @@ import { ExternalLink } from "lucide-react"
 
 const books = [
   {
+    title: "Blood Relatives",
+    subtitle: "Book Two in the Series",
+    description:
+      `A dark and riveting thriller where family bonds conceal deadly secrets, and trust can be the most dangerous illusion of all.
+
+When a popular podcaster suddenly disappears, what begins as a simple missing persons case spirals into something far more sinister. Behind the headlines lies a hidden world of obsession, betrayal, and the kind of family history no one wants to inherit.
+
+At the center is a brother and sister bound by blood but divided by secrets. One seeks redemption, the other control—and both are haunted by the shadows of the past. As investigators close in and new lies unravel, the line between love and loyalty blurs, leading to a chilling question: how far would you go to protect family, and how far would blood drag you down?`,
+    cover: "/bloodrelativescover.png",
+    amazonUrl: "",
+    year: "2025",
+    series: "Blood Lines #2",
+    comingSoon: true,
+  },
+  {
     title: "Terrence",
     subtitle: "A Bill Gill Novel",
     description:
@@ -58,12 +73,23 @@ export function Books() {
                     <p className="text-sm text-foreground/80 leading-relaxed">{book.description}</p>
                   </div>
                   <div className="pt-4">
-                    <Button asChild className="w-full sm:w-auto">
-                      <a href={book.amazonUrl} target="_blank" rel="noopener noreferrer">
-                        <span>Purchase on Amazon</span>
-                        <ExternalLink size={16} className="ml-2" />
-                      </a>
-                    </Button>
+                    {book.comingSoon ? (
+                      <div className="w-full sm:w-auto">
+                        <Button disabled className="w-full sm:w-auto bg-muted text-muted-foreground cursor-not-allowed">
+                          <span>Coming Soon</span>
+                        </Button>
+                        <p className="text-xs text-muted-foreground mt-2 text-center">
+                          Available 2025
+                        </p>
+                      </div>
+                    ) : (
+                      <Button asChild className="w-full sm:w-auto">
+                        <a href={book.amazonUrl} target="_blank" rel="noopener noreferrer">
+                          <span>Purchase on Amazon</span>
+                          <ExternalLink size={16} className="ml-2" />
+                        </a>
+                      </Button>
+                    )}
                   </div>
                 </div>
               </div>
