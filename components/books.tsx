@@ -9,16 +9,8 @@ const books = [
     subtitle: "A Blood Lines Novel",
     description:
       "When the mutilated body of a young park ranger is discovered at the base of Eagle Tower in Door County, Wisconsin, Detective Sarah Cross finds herself drawn into a chilling game of cat and mouse with a killer who leaves behind cryptic messages written in blood. As the body count rises, Sarah must confront her own traumatic past while racing against time to decipher the killer's twisted philosophy before she becomes his next victim.",
-    image: "/terrence-cover.svg",
-    buyLink: "#"
-  },
-  {
-    title: "The Midnight Collector",
-    subtitle: "A Detective Sarah Cross Novel",
-    description:
-      "When bodies start appearing with cryptic messages carved into their skin, Detective Sarah Cross is called in to investigate what appears to be the work of a serial killer with an artistic flair. As Sarah delves deeper into the case, she discovers that the killer is collecting 'trophies' from each victim and leaving behind clues that suggest a pattern connected to unsolved cases from decades past.",
-    image: "/shadow-of-the-reaper-cover.svg",
-    buyLink: "#"
+    image: "/terrence_cover.png",
+    buyLink: "https://www.amazon.com/Terrence-Blood-Lines-Novel/dp/B0CKDL3QZJ"
   }
 ]
 
@@ -33,7 +25,7 @@ export function Books() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           {books.map((book, index) => (
             <Card key={index} className="group overflow-hidden bg-card border-border hover:border-accent/50 transition-all duration-300 hover:shadow-lg">
               <div className="md:flex">
@@ -57,9 +49,11 @@ export function Books() {
                     </p>
                   </div>
                   <div className="mt-6">
-                    <Button className="w-full sm:w-auto">
-                      <ExternalLink size={16} className="mr-2" />
-                      Purchase Now
+                    <Button asChild className="w-full sm:w-auto">
+                      <a href={book.buyLink} target="_blank" rel="noopener noreferrer">
+                        <ExternalLink size={16} className="mr-2" />
+                        Purchase on Amazon
+                      </a>
                     </Button>
                   </div>
                 </div>
