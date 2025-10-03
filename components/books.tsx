@@ -1,6 +1,7 @@
 import { Button } from "./ui/button"
 import { Card } from "./ui/card"
 import { ExternalLink } from "lucide-react"
+import Image from "next/image"
 
 const books = [
   {
@@ -28,7 +29,7 @@ export function Books() {
         <div className="text-center mb-16">
           <h2 className="text-4xl sm:text-5xl font-serif font-bold mb-6 text-balance">Featured Books</h2>
           <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-            Dive into the dark and twisted world of Bill Gill's crime fiction. Each novel is a meticulously crafted psychological thriller that will keep you guessing until the very end.
+            Dive into the dark and twisted world of Bill Gill&apos;s crime fiction. Each novel is a meticulously crafted psychological thriller that will keep you guessing until the very end.
           </p>
         </div>
 
@@ -37,9 +38,11 @@ export function Books() {
             <Card key={index} className="group overflow-hidden bg-card border-border hover:border-accent/50 transition-all duration-300 hover:shadow-lg">
               <div className="md:flex">
                 <div className="md:w-1/3 lg:w-1/4">
-                  <img
+                  <Image
                     src={book.image}
                     alt={`${book.title} cover`}
+                    width={300}
+                    height={400}
                     className="w-full h-full object-cover md:aspect-[3/4]"
                   />
                 </div>

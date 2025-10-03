@@ -29,7 +29,7 @@ export function Reviews() {
         <div className="max-w-2xl mb-16">
           <h2 className="text-4xl sm:text-5xl font-serif font-bold mb-6 text-balance">Critical Acclaim</h2>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            What readers and critics are saying about Bill Gill's work.
+            What readers and critics are saying about Bill Gill&apos;s work.
           </p>
         </div>
 
@@ -41,7 +41,7 @@ export function Reviews() {
                   <Star key={i} size={16} className="fill-accent text-accent" />
                 ))}
               </div>
-              <blockquote className="text-sm leading-relaxed mb-4 text-foreground/90">"{review.quote}"</blockquote>
+              <blockquote className="text-sm leading-relaxed mb-4 text-foreground/90">&quot;{review.quote}&quot;</blockquote>
               <cite className="text-xs font-medium text-muted-foreground not-italic">— {review.author}</cite>
             </Card>
           ))}

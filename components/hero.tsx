@@ -2,6 +2,7 @@
 
 import { Button } from "./ui/button"
 import { ArrowDown } from "lucide-react"
+import Image from "next/image"
 
 export function Hero() {
   const scrollToBooks = () => {
@@ -15,7 +16,13 @@ export function Hero() {
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
-        <img src="/heroimage.png" alt="" className="w-full h-full object-cover opacity-30" />
+        <Image
+          src="/heroimage.png"
+          alt=""
+          width={1920}
+          height={1080}
+          className="w-full h-full object-cover opacity-30"
+        />
         <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background/80 to-background" />
       </div>
 
@@ -27,7 +34,7 @@ export function Hero() {
           </h1>
           <p className="text-xl sm:text-2xl text-muted-foreground font-serif italic">Crime Fiction Author</p>
           <p className="text-lg sm:text-xl text-foreground/90 max-w-2xl mx-auto leading-relaxed text-pretty">
-            Dark secrets. Twisted legacies. Characters you can't forget. Bill Gill delivers mysteries that linger long after the story ends.
+            Dark secrets. Twisted legacies. Characters you can&apos;t forget. Bill Gill delivers mysteries that linger long after the story ends.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
             <Button size="lg" onClick={scrollToBooks} className="text-base">

@@ -70,7 +70,7 @@ export function Contact() {
           <div className="text-center mb-12">
             <h2 className="text-4xl sm:text-5xl font-serif font-bold mb-6 text-balance">Get in Touch</h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Whether you're a reader, journalist, or fellow writer, I'd love to hear from you. For speaking
+              Whether you&apos;re a reader, journalist, or fellow writer, I&apos;d love to hear from you. For speaking
               engagements, media inquiries, or just to say hello, drop me a message.
             </p>
           </div>
@@ -134,7 +134,7 @@ export function Contact() {
 
               {status === "success" && (
                 <p className="text-sm text-accent text-center">
-                  Thank you for reaching out. I'll get back to you soon.
+                  Thank you for reaching out. I&apos;ll get back to you soon.
                 </p>
               )}
 
