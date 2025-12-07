@@ -101,10 +101,9 @@ Atmospheric, relentless, and fueled by a villain who transcends death, Specter o
 
 Perfect for fans of The Haunting of Hill House, The Silent Patient, and cinematic slow-burn horror with escalating dread.`,
     cover: "/Spectre_of_Insanity_cover.png",
-    amazonUrl: "",
+    amazonUrl: "https://a.co/d/hp2UrU2",
     year: "2025",
     series: "Murderous Hauntings #2",
-    comingSoon: true,
   }
 ]
 
