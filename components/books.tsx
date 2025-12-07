@@ -1,5 +1,9 @@
+"use client"
+
+import { useState } from "react"
 import { Button } from "./ui/button"
 import { Card } from "./ui/card"
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "./ui/dialog"
 import { ExternalLink } from "lucide-react"
 
 type Book = {
@@ -103,8 +107,116 @@ Perfect for fans of The Haunting of Hill House, The Silent Patient, and cinemati
   }
 ]
 
+function BookCard({ book }: { book: Book }) {
+  const [isOpen, setIsOpen] = useState(false)
+
+  // Get first paragraph for preview
+  const firstParagraph = book.description.split('\n\n')[0]
+  const truncatedPreview = firstParagraph.length > 150
+    ? firstParagraph.substring(0, 150) + '...'
+    : firstParagraph
+
+  return (
+    <>
+      <Card
+        className="group overflow-hidden bg-card border-border hover:border-accent/50 transition-all duration-300 hover:shadow-lg cursor-pointer"
+        onClick={() => setIsOpen(true)}
+      >
+        <div className="grid md:grid-cols-5 gap-6 p-6">
+          <div className="md:col-span-2">
+            <div className="relative aspect-[2/3] overflow-hidden rounded">
+              <img
+                src={book.cover || "/placeholder.svg"}
+                alt={book.title}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+          </div>
+          <div className="md:col-span-3 flex flex-col justify-between">
+            <div className="space-y-4">
+              <div>
+                <div className="flex items-center gap-3 mb-2">
+                  <span className="text-xs font-medium text-accent">{book.year}</span>
+                  <span className="text-xs text-muted-foreground">{book.series}</span>
+                </div>
+                <h3 className="text-2xl font-serif font-bold mb-1 text-balance">{book.title}</h3>
+                <p className="text-sm font-serif italic text-muted-foreground">{book.subtitle}</p>
+              </div>
+              <p className="text-sm text-foreground/80 leading-relaxed line-clamp-3">
+                {truncatedPreview}
+              </p>
+              <p className="text-xs text-accent font-medium">Click to read more</p>
+            </div>
+            <div className="pt-4" onClick={(e) => e.stopPropagation()}>
+              {book.comingSoon ?? false ? (
+                <Button disabled className="w-full sm:w-auto bg-muted text-muted-foreground cursor-not-allowed">
+                  <span>Coming Soon</span>
+                </Button>
+              ) : (
+                <Button asChild className="w-full sm:w-auto">
+                  <a href={book.amazonUrl} target="_blank" rel="noopener noreferrer">
+                    <span>Purchase on Amazon</span>
+                    <ExternalLink size={16} className="ml-2" />
+                  </a>
+                </Button>
+              )}
+            </div>
+          </div>
+        </div>
+      </Card>
+
+      <Dialog open={isOpen} onOpenChange={setIsOpen}>
+        <DialogContent className="max-w-4xl">
+          <DialogHeader>
+            <div className="flex items-center gap-3 mb-2">
+              <span className="text-xs font-medium text-accent">{book.year}</span>
+              <span className="text-xs text-muted-foreground">{book.series}</span>
+            </div>
+            <DialogTitle className="text-3xl font-serif font-bold">{book.title}</DialogTitle>
+            <DialogDescription className="text-base font-serif italic">
+              {book.subtitle}
+            </DialogDescription>
+          </DialogHeader>
+
+          <div className="grid md:grid-cols-3 gap-6 mt-4">
+            <div className="md:col-span-1">
+              <div className="relative aspect-[2/3] overflow-hidden rounded">
+                <img
+                  src={book.cover || "/placeholder.svg"}
+                  alt={book.title}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+            <div className="md:col-span-2 space-y-4">
+              {book.description.split('\n\n').map((paragraph, idx) => (
+                <p key={idx} className="text-sm text-foreground/80 leading-relaxed">
+                  {paragraph}
+                </p>
+              ))}
+              <div className="pt-4">
+                {book.comingSoon ?? false ? (
+                  <Button disabled className="w-full sm:w-auto bg-muted text-muted-foreground cursor-not-allowed">
+                    <span>Coming Soon</span>
+                  </Button>
+                ) : (
+                  <Button asChild className="w-full sm:w-auto">
+                    <a href={book.amazonUrl} target="_blank" rel="noopener noreferrer">
+                      <span>Purchase on Amazon</span>
+                      <ExternalLink size={16} className="ml-2" />
+                    </a>
+                  </Button>
+                )}
+              </div>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
+    </>
+  )
+}
+
 export function Books() {
-  // Updated: Single book layout with working Amazon purchase link
   return (
     <section id="books" className="py-24 sm:py-32">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -117,48 +229,9 @@ export function Books() {
 
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-          {books.map((book, index) => (
-            <Card key={index} className="group overflow-hidden bg-card border-border hover:border-accent/50 transition-all duration-300 hover:shadow-lg">
-              <div className="grid md:grid-cols-5 gap-6 p-6">
-                <div className="md:col-span-2">
-                  <div className="relative aspect-[2/3] overflow-hidden rounded">
-                    <img
-                      src={book.cover || "/placeholder.svg"}
-                      alt={book.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                  </div>
-                </div>
-                <div className="md:col-span-3 flex flex-col justify-between">
-                  <div className="space-y-4">
-                    <div>
-                      <div className="flex items-center gap-3 mb-2">
-                        <span className="text-xs font-medium text-accent">{book.year}</span>
-                        <span className="text-xs text-muted-foreground">{book.series}</span>
-                      </div>
-                      <h3 className="text-2xl font-serif font-bold mb-1 text-balance">{book.title}</h3>
-                      <p className="text-sm font-serif italic text-muted-foreground">{book.subtitle}</p>
-                    </div>
-                    <p className="text-sm text-foreground/80 leading-relaxed">{book.description}</p>
-                  </div>
-                  <div className="pt-4">
-                    {book.comingSoon ?? false ? (
-                      <Button disabled className="w-full sm:w-auto bg-muted text-muted-foreground cursor-not-allowed">
-                        <span>Coming Soon</span>
-                      </Button>
-                    ) : (
-                      <Button asChild className="w-full sm:w-auto">
-                        <a href={book.amazonUrl} target="_blank" rel="noopener noreferrer">
-                          <span>Purchase on Amazon</span>
-                          <ExternalLink size={16} className="ml-2" />
-                        </a>
-                      </Button>
-                    )}
-                  </div>
-                </div>
-              </div>
-            </Card>
-          ))}
+            {books.map((book, index) => (
+              <BookCard key={index} book={book} />
+            ))}
           </div>
         </div>
       </div>
