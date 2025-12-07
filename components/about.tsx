@@ -3,11 +3,11 @@ import { ScrollReveal } from "./scroll-reveal"
 
 export function About() {
   return (
-    <section id="about" className="py-16 sm:py-24 lg:py-32 bg-secondary/30">
-      <div className="container mx-auto px-6 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
+    <section id="about" className="py-24 sm:py-32 bg-secondary/30">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <ScrollReveal direction="left">
-            <div className="relative aspect-[4/5] max-w-md mx-auto lg:mx-0 overflow-hidden rounded">
+            <div className="relative aspect-[4/5] w-full overflow-hidden rounded">
               <Image
                 src="/billgillportrait.png"
                 alt="Bill Gill"
@@ -18,9 +18,9 @@ export function About() {
             </div>
           </ScrollReveal>
           <ScrollReveal direction="right" delay={200}>
-            <div className="space-y-4 sm:space-y-6">
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-balance text-center lg:text-left">About the Author</h2>
-              <div className="space-y-3 sm:space-y-4 text-foreground/90 leading-relaxed text-base sm:text-lg">
+            <div className="space-y-6">
+              <h2 className="text-4xl sm:text-5xl font-serif font-bold text-balance">About the Author</h2>
+              <div className="space-y-4 text-foreground/90 leading-relaxed">
                 <p>
                   Bill Gill writes stories that expose the shadows beneath ordinary lives. A retired educator and former business leader, he brings decades of real-world insight into characters who grapple with morality, obsession, and the secrets people fight to keep buried.
                 </p>
@@ -30,7 +30,7 @@ export function About() {
                 <p>
                   Gill&apos;s novels—including <span className="italic">Terrence</span>—delve into the psychology of crime, the legacy of family, and the unsettling truth that darkness often hides in plain sight. Known for intricate plotting and characters that blur the line between victim and predator, his work invites readers into stories that linger long after the final page.
                 </p>
-                <blockquote className="border-l-4 border-accent pl-4 italic text-base sm:text-lg font-serif mt-6">
+                <blockquote className="border-l-4 border-accent pl-4 italic text-lg font-serif">
                   &quot;Bill Gill doesn&apos;t just tell stories—he unearths them, pulling readers into worlds where the ordinary collides with the extraordinary, and where the deepest mysteries are often found within ourselves.&quot;
                 </blockquote>
               </div>

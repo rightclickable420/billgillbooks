@@ -20,29 +20,29 @@ export function Hero() {
           loop
           muted
           playsInline
-          className="w-full h-full object-cover object-center opacity-95"
+          className="w-full h-full object-cover opacity-95 md:object-center object-[75%_center]"
         >
           <source src="/hero_video.mov" type="video/quicktime" />
           <source src="/hero_video.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
-        <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/85 to-background" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background/80 to-background" />
       </div>
 
       {/* Content */}
-      <div className="container mx-auto px-6 sm:px-6 lg:px-8 relative z-10 text-center">
-        <div className="max-w-4xl mx-auto space-y-6 sm:space-y-8 py-8 sm:py-0">
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-serif font-bold tracking-tight text-balance ghostly-entrance">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+        <div className="max-w-4xl mx-auto space-y-8">
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-serif font-bold tracking-tight text-balance ghostly-entrance">
             Bill Gill
           </h1>
-          <p className="text-lg sm:text-2xl text-muted-foreground font-serif italic ghostly-entrance" style={{ animationDelay: "0.2s" }}>
+          <p className="text-xl sm:text-2xl text-muted-foreground font-serif italic ghostly-entrance" style={{ animationDelay: "0.2s" }}>
             Crime Fiction Author
           </p>
-          <p className="text-base sm:text-xl text-foreground/90 max-w-2xl mx-auto leading-relaxed text-pretty ghostly-entrance px-2 sm:px-0" style={{ animationDelay: "0.4s" }}>
+          <p className="text-lg sm:text-xl text-foreground/90 max-w-2xl mx-auto leading-relaxed text-pretty ghostly-entrance" style={{ animationDelay: "0.4s" }}>
             Dark secrets. Twisted legacies. Characters you can&apos;t forget. Bill Gill delivers mysteries that linger long after the story ends.
           </p>
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center pt-2 sm:pt-4 ghostly-entrance px-4 sm:px-0" style={{ animationDelay: "0.6s" }}>
-            <Button size="lg" onClick={scrollToBooks} className="text-base w-full sm:w-auto">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4 ghostly-entrance" style={{ animationDelay: "0.6s" }}>
+            <Button size="lg" onClick={scrollToBooks} className="text-base">
               Explore Books
             </Button>
             <Button
@@ -52,7 +52,6 @@ export function Hero() {
                 const element = document.getElementById("contact")
                 if (element) element.scrollIntoView({ behavior: "smooth" })
               }}
-              className="w-full sm:w-auto"
             >
               Get in Touch
             </Button>
