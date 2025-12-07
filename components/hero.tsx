@@ -1,10 +1,21 @@
 "use client"
 
+import { useEffect, useState } from "react"
 import { Button } from "./ui/button"
 import { ArrowDown } from "lucide-react"
 import Image from "next/image"
 
 export function Hero() {
+  const [scrollY, setScrollY] = useState(0)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY)
+    }
+    window.addEventListener("scroll", handleScroll, { passive: true })
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+
   const scrollToBooks = () => {
     const element = document.getElementById("books")
     if (element) {
@@ -14,14 +25,21 @@ export function Hero() {
 
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
-      <div className="absolute inset-0 z-0">
+      {/* Background Image with Parallax */}
+      <div
+        className="absolute inset-0 z-0"
+        style={{
+          transform: `translateY(${scrollY * 0.5}px)`,
+          transition: "transform 0.1s ease-out"
+        }}
+      >
         <Image
           src="/heroimage.png"
           alt=""
           width={1920}
           height={1080}
           className="w-full h-full object-cover opacity-95"
+          priority
         />
         <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background/80 to-background" />
       </div>
@@ -55,7 +73,7 @@ export function Hero() {
 
         <button
           onClick={scrollToBooks}
-          className="absolute bottom-12 left-1/2 -translate-x-1/2 animate-bounce"
+          className="hidden sm:block absolute bottom-12 left-1/2 -translate-x-1/2 animate-bounce"
           aria-label="Scroll to books"
         >
           <ArrowDown size={32} className="text-muted-foreground" />

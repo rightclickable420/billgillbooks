@@ -124,3 +124,45 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Scroll reveal animations */
+.reveal {
+  will-change: transform, opacity;
+}
+
+.reveal-visible {
+  opacity: 1 !important;
+  transform: translate(0, 0) !important;
+}
+
+/* Ghostly fade animation */
+@keyframes ghostly-fade {
+  0% {
+    opacity: 0;
+    filter: blur(10px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+.ghostly-entrance {
+  animation: ghostly-fade 1.2s ease-out forwards;
+}
+
+/* Parallax container */
+.parallax-container {
+  overflow: hidden;
+  position: relative;
+}
+
+/* Premium button hover effects */
+button, a {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}

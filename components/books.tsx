@@ -4,6 +4,7 @@ import { useState } from "react"
 import { Button } from "./ui/button"
 import { Card } from "./ui/card"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "./ui/dialog"
+import { ScrollReveal } from "./scroll-reveal"
 import { ExternalLink } from "lucide-react"
 
 type Book = {
@@ -119,17 +120,19 @@ function BookCard({ book }: { book: Book }) {
   return (
     <>
       <Card
-        className="group overflow-hidden bg-card border-border hover:border-accent/50 transition-all duration-300 hover:shadow-lg cursor-pointer"
+        className="group overflow-hidden bg-card border-border hover:border-accent/50 transition-all duration-500 hover:shadow-2xl hover:shadow-accent/10 cursor-pointer hover:-translate-y-1"
         onClick={() => setIsOpen(true)}
       >
         <div className="grid md:grid-cols-5 gap-6 p-6">
           <div className="md:col-span-2">
-            <div className="relative aspect-[2/3] overflow-hidden rounded">
+            <div className="relative aspect-[2/3] overflow-hidden rounded shadow-lg">
               <img
                 src={book.cover || "/placeholder.svg"}
                 alt={book.title}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
               />
+              {/* Overlay gradient on hover */}
+              <div className="absolute inset-0 bg-gradient-to-t from-accent/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </div>
           </div>
           <div className="md:col-span-3 flex flex-col justify-between">
@@ -218,19 +221,29 @@ function BookCard({ book }: { book: Book }) {
 
 export function Books() {
   return (
-    <section id="books" className="py-24 sm:py-32">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-2xl mx-auto mb-16 text-center">
+    <section id="books" className="py-24 sm:py-32 relative">
+      {/* Subtle background pattern */}
+      <div className="absolute inset-0 opacity-5 pointer-events-none">
+        <div className="absolute inset-0" style={{
+          backgroundImage: 'radial-gradient(circle at 2px 2px, currentColor 1px, transparent 0)',
+          backgroundSize: '40px 40px'
+        }} />
+      </div>
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <ScrollReveal direction="fade" className="max-w-2xl mx-auto mb-16 text-center">
           <h2 className="text-4xl sm:text-5xl font-serif font-bold mb-6 text-balance">Available Books</h2>
           <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
             Dive into the dark and twisted world of Bill Gill&apos;s crime fiction. Each novel is a meticulously crafted psychological thriller that will keep you guessing until the very end.
           </p>
-        </div>
+        </ScrollReveal>
 
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
             {books.map((book, index) => (
-              <BookCard key={index} book={book} />
+              <ScrollReveal key={index} delay={index * 150} direction="up">
+                <BookCard book={book} />
+              </ScrollReveal>
             ))}
           </div>
         </div>
