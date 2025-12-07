@@ -5,9 +5,9 @@ export function About() {
   return (
     <section id="about" className="py-24 sm:py-32 bg-secondary/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <ScrollReveal direction="left">
-            <div className="relative aspect-[4/5] w-full overflow-hidden rounded">
+            <div className="relative aspect-[4/5] w-full max-w-sm mx-auto lg:max-w-none lg:mx-0 overflow-hidden rounded">
               <Image
                 src="/billgillportrait.png"
                 alt="Bill Gill"
@@ -18,7 +18,7 @@ export function About() {
             </div>
           </ScrollReveal>
           <ScrollReveal direction="right" delay={200}>
-            <div className="space-y-6">
+            <div className="space-y-6 w-full">
               <h2 className="text-4xl sm:text-5xl font-serif font-bold text-balance">About the Author</h2>
               <div className="space-y-4 text-foreground/90 leading-relaxed">
                 <p>
