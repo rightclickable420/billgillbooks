@@ -53,8 +53,11 @@ export function ScrollReveal({
   return (
     <div
       ref={ref}
-      className={`reveal opacity-0 ${directionClasses[direction]} transition-all duration-1000 ease-out ${className}`}
-      style={{ transitionDelay: `${delay}ms` }}
+      className={`reveal opacity-0 blur-[10px] ${directionClasses[direction]} ${className}`}
+      style={{
+        transition: "all 1s ease-out",
+        transitionDelay: `${delay}ms`
+      }}
     >
       {children}
     </div>

@@ -127,12 +127,13 @@
 
 /* Scroll reveal animations */
 .reveal {
-  will-change: transform, opacity;
+  will-change: transform, opacity, filter;
 }
 
 .reveal-visible {
   opacity: 1 !important;
   transform: translate(0, 0) !important;
+  filter: blur(0) !important;
 }
 
 /* Ghostly fade animation */

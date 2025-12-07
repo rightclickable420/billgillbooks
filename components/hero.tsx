@@ -1,21 +1,10 @@
 "use client"
 
-import { useEffect, useState } from "react"
 import { Button } from "./ui/button"
 import { ArrowDown } from "lucide-react"
 import Image from "next/image"
 
 export function Hero() {
-  const [scrollY, setScrollY] = useState(0)
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY)
-    }
-    window.addEventListener("scroll", handleScroll, { passive: true })
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
-
   const scrollToBooks = () => {
     const element = document.getElementById("books")
     if (element) {
@@ -25,14 +14,8 @@ export function Hero() {
 
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image with Parallax */}
-      <div
-        className="absolute inset-0 z-0"
-        style={{
-          transform: `translateY(${scrollY * 0.5}px)`,
-          transition: "transform 0.1s ease-out"
-        }}
-      >
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
         <Image
           src="/heroimage.png"
           alt=""
@@ -47,14 +30,16 @@ export function Hero() {
       {/* Content */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
         <div className="max-w-4xl mx-auto space-y-8">
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-serif font-bold tracking-tight text-balance">
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-serif font-bold tracking-tight text-balance ghostly-entrance">
             Bill Gill
           </h1>
-          <p className="text-xl sm:text-2xl text-muted-foreground font-serif italic">Crime Fiction Author</p>
-          <p className="text-lg sm:text-xl text-foreground/90 max-w-2xl mx-auto leading-relaxed text-pretty">
+          <p className="text-xl sm:text-2xl text-muted-foreground font-serif italic ghostly-entrance" style={{ animationDelay: "0.2s" }}>
+            Crime Fiction Author
+          </p>
+          <p className="text-lg sm:text-xl text-foreground/90 max-w-2xl mx-auto leading-relaxed text-pretty ghostly-entrance" style={{ animationDelay: "0.4s" }}>
             Dark secrets. Twisted legacies. Characters you can&apos;t forget. Bill Gill delivers mysteries that linger long after the story ends.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4 ghostly-entrance" style={{ animationDelay: "0.6s" }}>
             <Button size="lg" onClick={scrollToBooks} className="text-base">
               Explore Books
             </Button>
