@@ -2,7 +2,6 @@
 
 import { Button } from "./ui/button"
 import { ArrowDown } from "lucide-react"
-import Image from "next/image"
 
 export function Hero() {
   const scrollToBooks = () => {
@@ -14,16 +13,19 @@ export function Hero() {
 
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
+      {/* Background Video */}
       <div className="absolute inset-0 z-0">
-        <Image
-          src="/heroimage.png"
-          alt=""
-          width={1920}
-          height={1080}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
           className="w-full h-full object-cover opacity-95"
-          priority
-        />
+        >
+          <source src="/hero_video.mov" type="video/quicktime" />
+          <source src="/hero_video.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
         <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background/80 to-background" />
       </div>
 
