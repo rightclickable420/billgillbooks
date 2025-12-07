@@ -1,4 +1,5 @@
 import { Card } from "./ui/card"
+import { ScrollReveal } from "./scroll-reveal"
 import { Star } from "lucide-react"
 
 const reviews = [
@@ -26,24 +27,28 @@ export function Reviews() {
   return (
     <section id="reviews" className="py-24 sm:py-32">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-2xl mb-16">
-          <h2 className="text-4xl sm:text-5xl font-serif font-bold mb-6 text-balance">Critical Acclaim</h2>
-          <p className="text-lg text-muted-foreground leading-relaxed">
-            What readers and critics are saying about Bill Gill&apos;s work.
-          </p>
-        </div>
+        <ScrollReveal direction="fade">
+          <div className="max-w-2xl mb-16">
+            <h2 className="text-4xl sm:text-5xl font-serif font-bold mb-6 text-balance">Critical Acclaim</h2>
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              What readers and critics are saying about Bill Gill&apos;s work.
+            </p>
+          </div>
+        </ScrollReveal>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {reviews.map((review, index) => (
-            <Card key={index} className="p-6 bg-card border-border hover:border-accent/50 transition-colors">
-              <div className="flex gap-1 mb-4">
-                {Array.from({ length: review.rating }).map((_, i) => (
-                  <Star key={i} size={16} className="fill-accent text-accent" />
-                ))}
-              </div>
-              <blockquote className="text-sm leading-relaxed mb-4 text-foreground/90">&quot;{review.quote}&quot;</blockquote>
-              <cite className="text-xs font-medium text-muted-foreground not-italic">— {review.author}</cite>
-            </Card>
+            <ScrollReveal key={index} delay={index * 150} direction="up">
+              <Card className="p-6 bg-card border-border hover:border-accent/50 transition-colors h-full">
+                <div className="flex gap-1 mb-4">
+                  {Array.from({ length: review.rating }).map((_, i) => (
+                    <Star key={i} size={16} className="fill-accent text-accent" />
+                  ))}
+                </div>
+                <blockquote className="text-sm leading-relaxed mb-4 text-foreground/90">&quot;{review.quote}&quot;</blockquote>
+                <cite className="text-xs font-medium text-muted-foreground not-italic">— {review.author}</cite>
+              </Card>
+            </ScrollReveal>
           ))}
         </div>
       </div>

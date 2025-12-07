@@ -7,6 +7,7 @@ import { Button } from "./ui/button"
 import { Input } from "./ui/input"
 import { Textarea } from "./ui/textarea"
 import { Card } from "./ui/card"
+import { ScrollReveal } from "./scroll-reveal"
 import { Mail, MessageSquare, User } from "lucide-react"
 import emailjs from "@emailjs/browser"
 
@@ -67,15 +68,18 @@ export function Contact() {
     <section id="contact" className="py-24 sm:py-32">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl sm:text-5xl font-serif font-bold mb-6 text-balance">Get in Touch</h2>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              Whether you&apos;re a reader, journalist, or fellow writer, I&apos;d love to hear from you. For speaking
-              engagements, media inquiries, or just to say hello, drop me a message.
-            </p>
-          </div>
+          <ScrollReveal direction="fade">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl sm:text-5xl font-serif font-bold mb-6 text-balance">Get in Touch</h2>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Whether you&apos;re a reader, journalist, or fellow writer, I&apos;d love to hear from you. For speaking
+                engagements, media inquiries, or just to say hello, drop me a message.
+              </p>
+            </div>
+          </ScrollReveal>
 
-          <Card className="p-8 bg-card border-border">
+          <ScrollReveal direction="up" delay={200}>
+            <Card className="p-8 bg-card border-border">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="space-y-2">
                 <label htmlFor="name" className="text-sm font-medium flex items-center gap-2">
@@ -144,7 +148,8 @@ export function Contact() {
                 </p>
               )}
             </form>
-          </Card>
+            </Card>
+          </ScrollReveal>
         </div>
       </div>
     </section>

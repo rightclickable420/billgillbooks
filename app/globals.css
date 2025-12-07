@@ -149,6 +149,7 @@
 }
 
 .ghostly-entrance {
+  opacity: 0;
   animation: ghostly-fade 1.2s ease-out forwards;
 }
 

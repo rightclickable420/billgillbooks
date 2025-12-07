@@ -1,10 +1,12 @@
 import { Mail, ShoppingBag } from "lucide-react"
+import { ScrollReveal } from "./scroll-reveal"
 
 export function Footer() {
   return (
     <footer className="border-t border-border bg-secondary/20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid md:grid-cols-3 gap-8 mb-8">
+        <ScrollReveal direction="fade">
+          <div className="grid md:grid-cols-3 gap-8 mb-8">
           <div>
             <h3 className="text-xl font-serif font-bold mb-4">Bill Gill</h3>
             <p className="text-sm text-muted-foreground leading-relaxed">
@@ -81,7 +83,8 @@ export function Footer() {
               </a>
             </div>
           </div>
-        </div>
+          </div>
+        </ScrollReveal>
 
         <div className="pt-8 border-t border-border text-center text-sm text-muted-foreground">
           <p>&copy; {new Date().getFullYear()} Bill Gill. All rights reserved.</p>

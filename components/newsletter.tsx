@@ -5,6 +5,7 @@ import type React from "react"
 import { useState } from "react"
 import { Button } from "./ui/button"
 import { Input } from "./ui/input"
+import { ScrollReveal } from "./scroll-reveal"
 
 export function Newsletter() {
   const [email, setEmail] = useState("")
@@ -26,7 +27,8 @@ export function Newsletter() {
   return (
     <section className="py-24 sm:py-32 bg-secondary/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-2xl mx-auto text-center">
+        <ScrollReveal direction="fade">
+          <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-3xl sm:text-4xl font-serif font-bold mb-4 text-balance">Stay in the Shadows</h2>
           <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
             Subscribe to receive exclusive updates, behind-the-scenes content, and early access to new releases. Join
@@ -53,7 +55,8 @@ export function Newsletter() {
               Welcome to the shadows. Check your email to confirm your subscription.
             </p>
           )}
-        </div>
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   )
