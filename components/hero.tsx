@@ -36,7 +36,7 @@ export function Hero() {
 
     videoElement.addEventListener("ended", handleVideoEnd)
     return () => videoElement.removeEventListener("ended", handleVideoEnd)
-  }, [])
+  }, [currentVideoIndex])
 
   const currentVideo = videos[currentVideoIndex]
 
