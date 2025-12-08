@@ -31,7 +31,7 @@ export function Hero() {
       setTimeout(() => {
         setCurrentVideoIndex((prevIndex) => (prevIndex + 1) % videos.length)
         setIsTransitioning(false)
-      }, 1000) // 1 second fade transition
+      }, 2000) // 2 second fade transition
     }
 
     videoElement.addEventListener("ended", handleVideoEnd)
@@ -50,7 +50,7 @@ export function Hero() {
           autoPlay
           muted
           playsInline
-          className={`w-full h-full object-cover opacity-95 md:object-center object-[75%_center] transition-opacity duration-1000 ${
+          className={`w-full h-full object-cover opacity-95 md:object-center object-[75%_center] transition-opacity duration-2000 ease-in-out ${
             isTransitioning ? "opacity-0" : "opacity-95"
           }`}
         >
