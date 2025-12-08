@@ -11,8 +11,10 @@ const videos = [
 
 export function Hero() {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0)
-  const [isTransitioning, setIsTransitioning] = useState(false)
-  const videoRef = useRef<HTMLVideoElement>(null)
+  const [nextVideoIndex, setNextVideoIndex] = useState(1)
+  const [showCurrent, setShowCurrent] = useState(true)
+  const video1Ref = useRef<HTMLVideoElement>(null)
+  const video2Ref = useRef<HTMLVideoElement>(null)
 
   const scrollToBooks = () => {
     const element = document.getElementById("books")
@@ -22,42 +24,67 @@ export function Hero() {
   }
 
   useEffect(() => {
-    const videoElement = videoRef.current
-    if (!videoElement) return
+    const currentVideo = showCurrent ? video1Ref.current : video2Ref.current
+    if (!currentVideo) return
 
     const handleVideoEnd = () => {
-      setIsTransitioning(true)
+      // Start fading to next video
+      setShowCurrent(!showCurrent)
 
+      // After fade completes, update indices and prepare next video
       setTimeout(() => {
-        setCurrentVideoIndex((prevIndex) => (prevIndex + 1) % videos.length)
-        setIsTransitioning(false)
-      }, 2000) // 2 second fade transition
+        setCurrentVideoIndex((prev) => (prev + 1) % videos.length)
+        setNextVideoIndex((prev) => (prev + 1) % videos.length)
+      }, 2000)
     }
 
-    videoElement.addEventListener("ended", handleVideoEnd)
-    return () => videoElement.removeEventListener("ended", handleVideoEnd)
-  }, [currentVideoIndex])
+    currentVideo.addEventListener("ended", handleVideoEnd)
+    return () => currentVideo.removeEventListener("ended", handleVideoEnd)
+  }, [showCurrent])
 
-  const currentVideo = videos[currentVideoIndex]
+  // Start playing the next video when it becomes visible
+  useEffect(() => {
+    const videoToPlay = showCurrent ? video1Ref.current : video2Ref.current
+    if (videoToPlay) {
+      videoToPlay.play().catch(() => {
+        // Ignore autoplay errors
+      })
+    }
+  }, [showCurrent])
 
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Video */}
+      {/* Background Videos */}
       <div className="absolute inset-0 z-0">
+        {/* Video 1 */}
         <video
-          ref={videoRef}
-          key={currentVideoIndex}
+          ref={video1Ref}
           autoPlay
           muted
           playsInline
-          className={`w-full h-full object-cover opacity-95 md:object-center object-[75%_center] transition-opacity duration-2000 ease-in-out ${
-            isTransitioning ? "opacity-0" : "opacity-95"
+          className={`absolute inset-0 w-full h-full object-cover md:object-center object-[75%_center] transition-opacity duration-[2000ms] ease-in-out ${
+            showCurrent ? "opacity-95" : "opacity-0"
           }`}
         >
-          <source src={currentVideo.mov} type="video/quicktime" />
-          <source src={currentVideo.mp4} type="video/mp4" />
+          <source src={videos[currentVideoIndex].mov} type="video/quicktime" />
+          <source src={videos[currentVideoIndex].mp4} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
+
+        {/* Video 2 */}
+        <video
+          ref={video2Ref}
+          muted
+          playsInline
+          className={`absolute inset-0 w-full h-full object-cover md:object-center object-[75%_center] transition-opacity duration-[2000ms] ease-in-out ${
+            !showCurrent ? "opacity-95" : "opacity-0"
+          }`}
+        >
+          <source src={videos[nextVideoIndex].mov} type="video/quicktime" />
+          <source src={videos[nextVideoIndex].mp4} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+
         <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background/80 to-background" />
       </div>
 
