@@ -62,9 +62,10 @@ export function Hero() {
           autoPlay
           muted
           playsInline
-          className={`absolute inset-0 w-full h-full object-cover md:object-center object-[75%_center] transition-opacity duration-[2000ms] ease-in-out ${
+          className={`absolute inset-0 w-full h-full object-cover object-center md:object-center transition-opacity duration-[2000ms] ease-in-out ${
             showCurrent ? "opacity-95" : "opacity-0"
           }`}
+          style={{ objectFit: 'cover' }}
         >
           <source src={videos[currentVideoIndex].mov} type="video/quicktime" />
           <source src={videos[currentVideoIndex].mp4} type="video/mp4" />
@@ -76,9 +77,10 @@ export function Hero() {
           ref={video2Ref}
           muted
           playsInline
-          className={`absolute inset-0 w-full h-full object-cover md:object-center object-[75%_center] transition-opacity duration-[2000ms] ease-in-out ${
+          className={`absolute inset-0 w-full h-full object-cover object-center md:object-center transition-opacity duration-[2000ms] ease-in-out ${
             !showCurrent ? "opacity-95" : "opacity-0"
           }`}
+          style={{ objectFit: 'cover' }}
         >
           <source src={videos[nextVideoIndex].mov} type="video/quicktime" />
           <source src={videos[nextVideoIndex].mp4} type="video/mp4" />
