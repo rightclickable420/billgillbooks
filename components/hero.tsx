@@ -1,9 +1,19 @@
 "use client"
 
+import { useState, useEffect, useRef } from "react"
 import { Button } from "./ui/button"
 import { ArrowDown } from "lucide-react"
 
+const videos = [
+  { mov: "/hero_video.mov", mp4: "/hero_video.mp4" },
+  { mov: "/hero_video_2.mov", mp4: "/hero_video_2.mp4" },
+]
+
 export function Hero() {
+  const [currentVideoIndex, setCurrentVideoIndex] = useState(0)
+  const [isTransitioning, setIsTransitioning] = useState(false)
+  const videoRef = useRef<HTMLVideoElement>(null)
+
   const scrollToBooks = () => {
     const element = document.getElementById("books")
     if (element) {
@@ -11,19 +21,41 @@ export function Hero() {
     }
   }
 
+  useEffect(() => {
+    const videoElement = videoRef.current
+    if (!videoElement) return
+
+    const handleVideoEnd = () => {
+      setIsTransitioning(true)
+
+      setTimeout(() => {
+        setCurrentVideoIndex((prevIndex) => (prevIndex + 1) % videos.length)
+        setIsTransitioning(false)
+      }, 1000) // 1 second fade transition
+    }
+
+    videoElement.addEventListener("ended", handleVideoEnd)
+    return () => videoElement.removeEventListener("ended", handleVideoEnd)
+  }, [])
+
+  const currentVideo = videos[currentVideoIndex]
+
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Video */}
       <div className="absolute inset-0 z-0">
         <video
+          ref={videoRef}
+          key={currentVideoIndex}
           autoPlay
-          loop
           muted
           playsInline
-          className="w-full h-full object-cover opacity-95 md:object-center object-[75%_center]"
+          className={`w-full h-full object-cover opacity-95 md:object-center object-[75%_center] transition-opacity duration-1000 ${
+            isTransitioning ? "opacity-0" : "opacity-95"
+          }`}
         >
-          <source src="/hero_video.mov" type="video/quicktime" />
-          <source src="/hero_video.mp4" type="video/mp4" />
+          <source src={currentVideo.mov} type="video/quicktime" />
+          <source src={currentVideo.mp4} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
         <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background/80 to-background" />
