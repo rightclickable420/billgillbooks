@@ -104,6 +104,37 @@ Perfect for fans of The Haunting of Hill House, The Silent Patient, and cinemati
     amazonUrl: "https://a.co/d/hp2UrU2",
     year: "2025",
     series: "Murderous Hauntings #2",
+  },
+  {
+    title: "Cast a Blind Shadow",
+    subtitle: "A Bill Gill Novel",
+    description:
+      `In the shadowed ruins of Lockwood Sanatorium, where walls absorb the echoes of a century's suffering, some doors should never be reopened.
+
+Built as a refuge for the dying, it became a graveyard of secrets—whispers of suicides, epidemics, and unspoken atrocities that linger in the damp air. When a group of paranormal seekers claims the decaying building for their ghost hunts, they stir something ancient and insatiable.
+
+A reclusive caretaker is tormented by visions that slither from the dark. A steadfast investigator stumbles into a web of small-town rumors that unravel into terror. And in the dead of night, a forbidden ritual calls forth a presence that twists the living into vessels of its rage.
+
+As the boundary between hauntings and horrors dissolves, the survivors must confront the truth: evil doesn't just haunt places—it inherits them.
+
+Cast a Blind Shadow is a pulse-pounding supernatural thriller blending atmospheric dread with psychological chills, perfect for fans of Stephen King's The Shining and Paul Tremblay's A Head Full of Ghosts. Dive into the darkness... if you dare.`,
+    cover: "/Cast a blind shadow.jpeg",
+    amazonUrl: "https://a.co/d/0cxrSy6s",
+    year: "2026",
+    series: "Murderous Hauntings #3",
+  },
+  {
+    title: "Murder Walks a Crooked Path",
+    subtitle: "A Bill Gill Novel",
+    description:
+      `In the quiet community of Columbus, Wisconsin, seventeen-year-old Randy Vaughn and his younger brother, Robert—the inseparable "Dynamic Duo"—navigate a life of domestic tension, caught between their mother's grueling work schedule and their stepfather's volatile, PTSD-fueled episodes. One fateful night, a petty teenage argument and a drive for independence lead Randy to leave his brother behind, never imagining it would be the last time he would see Robert alive. When a local detective is called to a scene that defies the town's peaceful reputation, the investigation unearths a tangled web of secrets involving a scarred newcomer, a vengeful father, and a ghost from the family's past.
+
+As the search for the truth intensifies, the quiet streets of Columbus become a maze of mistaken identities and extortion, revealing the tragic consequences of unprocessed trauma and hidden lives. In a town where everyone knows your name but no one truly knows your secrets, the quest for justice leads to a heart-wrenching revelation that threatens to shatter the remains of a broken family. Amidst the shadows of a veteran's nightmares and a mother's desperate love, the truth of a crooked path emerges, proving that the most dangerous secrets are often those kept behind closed doors.`,
+    cover: "/Murder Walks a Crooked Path Cover.jpg",
+    amazonUrl: "",
+    year: "2026",
+    series: "Flanagan Mysteries #1",
+    comingSoon: true,
   }
 ]
 
@@ -233,7 +264,7 @@ export function Books() {
         <ScrollReveal direction="fade" className="max-w-2xl mx-auto mb-16 text-center">
           <h2 className="text-4xl sm:text-5xl font-serif font-bold mb-6 text-balance">Available Books</h2>
           <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-            Dive into the dark and twisted world of Bill Gill&apos;s crime fiction. Each novel is a meticulously crafted psychological thriller that will keep you guessing until the very end.
+            Dive into the dark and twisted world of Bill Gill&apos;s crime fiction and haunting tales. Each novel is a meticulously crafted psychological thriller that will keep you guessing until the very end.
           </p>
         </ScrollReveal>
 
