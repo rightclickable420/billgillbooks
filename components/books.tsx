@@ -118,7 +118,7 @@ A reclusive caretaker is tormented by visions that slither from the dark. A stea
 As the boundary between hauntings and horrors dissolves, the survivors must confront the truth: evil doesn't just haunt places—it inherits them.
 
 Cast a Blind Shadow is a pulse-pounding supernatural thriller blending atmospheric dread with psychological chills, perfect for fans of Stephen King's The Shining and Paul Tremblay's A Head Full of Ghosts. Dive into the darkness... if you dare.`,
-    cover: "/Cast a blind shadow.jpeg",
+    cover: "/Cast a Blind Shadow.jpeg",
     amazonUrl: "https://a.co/d/0cxrSy6s",
     year: "2026",
     series: "Murderous Hauntings #3",
